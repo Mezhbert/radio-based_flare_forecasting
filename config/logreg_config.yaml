@@ -1,0 +1,47 @@
+data:
+  sharp_years_train: [2019, 2020, 2021, 2022, 2023, 2024]
+  sharp_years_test: [2025]
+  sharp_features: ['USFLUX', 'MEANGBT', 'MEANJZH', 'MEANPOT',
+                   'SHRGT45', 'TOTUSJH', 'MEANGBH', 'MEANALP',
+                   'MEANGAM', 'MEANGBZ', 'MEANJZD', 'TOTUSJZ',
+                   'SAVNCPP', 'TOTPOT', 'MEANSHR', 'AREA_ACR', 
+                   'R_VALUE', 'ABSNJZH']
+  ratan_features: ['dim_0', 'dim_1', 'dim_2', 'dim_3', 'dim_4', 'dim_5', 'dim_6', 'dim_7',
+                   'dim_8', 'dim_9', 'dim_10', 'dim_11', 'dim_12', 'dim_13', 'dim_14', 'dim_15',
+                   'dim_16', 'dim_17', 'dim_18', 'dim_19', 'dim_20', 'dim_21', 'dim_22', 'dim_23',
+                   'dim_24', 'dim_25', 'dim_26', 'dim_27', 'dim_28', 'dim_29', 'dim_30', 'dim_31',
+                   'dim_32', 'dim_33', 'dim_34', 'dim_35', 'dim_36', 'dim_37', 'dim_38', 'dim_39',
+                   'dim_40', 'dim_41', 'dim_42', 'dim_43', 'dim_44', 'dim_45', 'dim_46', 'dim_47',
+                   'dim_48', 'dim_49', 'dim_50', 'dim_51', 'dim_52', 'dim_53', 'dim_54', 'dim_55',
+                   'dim_56', 'dim_57', 'dim_58', 'dim_59', 'dim_60', 'dim_61', 'dim_62', 'dim_63']
+  target_cols:
+    - 'is_C_24'
+    - 'Mplus_24'
+    - 'is_C_48'
+    - 'Mplus_48'
+  data_paths:
+    sharps_train_save: "sharps_train_processed.csv"
+    sharps_test_save: "sharps_test_processed.csv"
+    ratan_train_save: "ratan_train_processed.csv"
+    ratan_test_save: "ratan_test_processed.csv"
+    ratan_embeddings: "fits_embeddings.csv"
+  
+model:
+  name: "LogisticRegression"
+  params:
+    class_weight: "balanced"
+    random_state: 17
+  cv_splits: 2
+  
+output:
+  prediction_csv_sharp: "logreg_predictions_sharps_2025.csv"
+  prediction_csv_ratan: "logreg_predictions_ratan_2025.csv"
+  thresholds: [0.60, 0.55, 0.50, 0.45, 0.4, 0.35, 0.3, 0.25, 0.2]
+  show_fig: False # set True to show figures in jupyter notebooks
+  titles:
+    is_C_24: "C-class flares | 0-24 hour window"
+    is_C_48: "C-class flares | 24-48 hour window"
+    Mplus_24: "≥M-class flares | 0-24 hour window"
+    Mplus_48: "≥M-class flares | 24-48 hour window"
+
+device: "cuda"

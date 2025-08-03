@@ -1,0 +1,9 @@
+/venv
+*__pycache__
+*.pyc
+/data/raw/ar_fits
+/data/interim
+/data/processed
+/reports
+/log
+/models

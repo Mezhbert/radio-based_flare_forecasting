@@ -1,0 +1,40 @@
+data:
+  download_fits: False
+  preprocess_fits: False
+  folder_name: "ar_fits"
+  preprocess_fits_name: "preprocessed_fits.npy"
+  years: ["2019", "2020", "2021", "2022", "2023", "2024", "2025"]
+  height: 75
+  width: 101
+  channels: 2
+  clip_factor: 6.0
+
+model:
+  latent_dim: 64
+  epochs: 20
+  batch_size: 32
+  lr: 0.001
+  save_path: "conv_ae.pth"
+  train_model: False
+
+output:
+  embeddings_csv: "fits_embeddings.csv"
+  loss_plot: "conv_ae_loss_plot.png"
+  num_visual_examples: 5
+  grayscale: True
+  train_color: "blue"
+  val_color: "red"
+  plot_losses: False
+  extract_embeddings: True
+  visualize_reconstructions: False
+  evaluate_reconstructions: False
+  
+interim_files:
+  original_data_for_viz_path: "original_data_for_viz.npy"
+  reconstructed_data_save_path: "reconstructed_data.npy"
+  visualization_filenames_path: "visualization_filenames.txt"
+  train_losses_path: "train_losses.npy"
+  val_losses_path: "val_losses.npy"
+  filepaths_path: "filepaths.pkl"
+
+device: "cuda"
