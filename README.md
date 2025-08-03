@@ -28,7 +28,7 @@
 ├── main.py                 # Главный исполняемый скрипт
 ├── notebooks/              # Jupyter-ноутбуки для экспериментов и анализа
 │   └── SHARPvsRATAN_LogReg.ipynb
-├── README.md               # Этот файл
+├── README.md               
 ├── reports/                # Отчёты и сгенерированные графики
 ├── requirements.txt        # Список зависимостей Python
 └── src/                    # Исходный код проекта
