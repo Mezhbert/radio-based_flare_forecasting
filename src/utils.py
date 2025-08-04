@@ -377,6 +377,7 @@ def plot_for_flare_type(data_dataframe: pd.DataFrame,
                     title=f"Brier Score: {round(BS, 4)}")
     if show_fig:
         plt.show()
+    plt.savefig(save_to)
     
     plt.close()
 
